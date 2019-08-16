@@ -1,0 +1,7 @@
+{
+  "appId": "com.github.devinshoemaker.githubusersearch",
+  "appName": "GitHub User Search",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}
