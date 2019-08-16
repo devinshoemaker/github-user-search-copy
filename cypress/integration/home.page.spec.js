@@ -1,15 +1,15 @@
 /// <reference types="Cypress" />
 
-context("Home Page", () => {
+context('Home Page', () => {
   beforeEach(() => {
-    cy.visit("/");
+    cy.visit('/');
   });
 
-  it("should have title", () => {
-    cy.get("ion-title").should("contain", "Ionic Blank");
+  it('should have title', () => {
+    cy.get('ion-title').should('contain', 'Ionic Blank');
   });
 
-  it("should be blank", () => {
-    cy.get("ion-content").should("contain", "The world is your oyster.");
+  it('should be blank', () => {
+    cy.get('ion-content').should('contain', 'The world is your oyster.');
   });
 });
