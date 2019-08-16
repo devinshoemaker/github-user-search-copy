@@ -1,8 +1,8 @@
 {
   "name": "github-user-search",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Devin Shoemaker",
+  "homepage": "https://github.com/devinshoemaker/github-user-search",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -55,5 +55,5 @@
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
   },
-  "description": "An Ionic project"
+  "description": "A cross-platform Ionic implementation of the GitHub search API"
 }
