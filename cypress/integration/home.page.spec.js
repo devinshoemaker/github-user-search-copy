@@ -6,7 +6,7 @@ context('Home Page', () => {
   });
 
   it('should have title', () => {
-    cy.get('ion-title').should('contain', 'Ionic Blank');
+    cy.get('ion-title').should('contain', 'GitHub User Search');
   });
 
   it('should be blank', () => {
