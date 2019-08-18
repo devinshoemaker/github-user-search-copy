@@ -6,15 +6,76 @@
   </ion-toolbar>
 </ion-header>
 
+<form [formGroup]="searchForm" (submit)="searchGitHubUsersByName()">
+  <ion-item>
+    <ion-label position="floating">Search GitHub users</ion-label>
+    <ion-input
+      cy-id="search-input"
+      type="text"
+      formControlName="input"
+    ></ion-input>
+  </ion-item>
+</form>
+
+<ion-button
+  class="search-button"
+  cy-id="search-button"
+  (click)="searchGitHubUsersByName()"
+>
+  Search
+</ion-button>
+
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>
-      If you get lost, the
-      <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">
-        docs
-      </a>
-      will be your guide.
-    </p>
+  <h2 cy-id="user-count" *ngIf="searchResult?.body?.total_count">
+    {{ searchResult?.body?.total_count }} user results
+  </h2>
+
+  <ion-list>
+    <ion-card
+      cy-id="user-card"
+      *ngFor="let user of searchResult?.body?.items"
+      (click)="openUrl(user.html_url)"
+    >
+      <img class="avatar" src="{{ user.avatar_url }}" />
+
+      <ion-card-header>
+        <ion-card-subtitle>{{ user.type }}</ion-card-subtitle>
+        <ion-card-title>{{ user.login }}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </ion-list>
+
+  <ion-button
+    cy-id="pagination-first-button"
+    *ngIf="searchResult?.links?.get('first') as url"
+    (click)="searchGitHubByUrl(url)"
+  >
+    First
+  </ion-button>
+
+  <ion-button
+    cy-id="pagination-prev-button"
+    *ngIf="searchResult?.links?.get('prev') as url"
+    (click)="searchGitHubByUrl(url)"
+  >
+    Prev
+  </ion-button>
+
+  <div class="float-right">
+    <ion-button
+      cy-id="pagination-next-button"
+      *ngIf="searchResult?.links?.get('next') as url"
+      (click)="searchGitHubByUrl(url)"
+    >
+      Next
+    </ion-button>
+
+    <ion-button
+      cy-id="pagination-last-button"
+      *ngIf="searchResult?.links?.get('last') as url"
+      (click)="searchGitHubByUrl(url)"
+    >
+      Last
+    </ion-button>
   </div>
 </ion-content>

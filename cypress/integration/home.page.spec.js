@@ -9,7 +9,22 @@ context('Home Page', () => {
     cy.get('ion-title').should('contain', 'GitHub User Search');
   });
 
-  it('should be blank', () => {
-    cy.get('ion-content').should('contain', 'The world is your oyster.');
+  it('should return users from search', () => {
+    cy.searchGitHubUsers();
+
+    cy.get('[cy-id="user-card"]').should('contain', 'cypress');
+  });
+
+  it('should display number of user results from search', () => {
+    cy.searchGitHubUsers();
+
+    cy.get('[cy-id="user-count"').should('contain', 'user results');
+  });
+
+  it('should paginate to next page of search results', () => {
+    cy.searchGitHubUsers();
+
+    cy.get('[cy-id="pagination-next-button"]').click({ force: true });
+    cy.get('[cy-id="pagination-prev-button"]').should('exist');
   });
 });

@@ -23,3 +23,11 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('searchGitHubUsers', () => {
+  cy.get('[cy-id="search-input"]')
+    .children()
+    .type('cypress');
+
+  cy.get('[cy-id="search-button"]').click();
+});
