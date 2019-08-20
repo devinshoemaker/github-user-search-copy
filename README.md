@@ -13,13 +13,18 @@ This application uses the public [GitHub search API](https://developer.github.co
 - This project has been formatted with [Prettier](https://prettier.io)
 - [Firebase](https://firebase.google.com) is used for hosting (you must generate your own `.firebaserc`)
 
+Future enhancements I would make:
+- Responsive web design with utilization of whitespace
+- Break down UI into components for pagination, the result list, etc.
+- Karma unit tests
+- User authentication to increase API rate limit
+
 ## Table of Contents
 
 - [Install](#install)
 - [Usage](#usage)
 - [Test](#test)
 - [Updating](#updating)
-- [Deploy](#deploy)
 - [Maintainers](#maintainers)
 - [Contributing](#contributing)
 - [License](#license)
