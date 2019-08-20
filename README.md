@@ -4,7 +4,14 @@
 
 > A cross-platform Ionic implementation of the GitHub search API
 
-This application uses the public [GitHub search API](https://developer.github.com/v3/search/) in order to search for users. It is built with the [Ionic Framework](https://ionicframework.com/docs) and uses [Capacitor](https://capacitor.ionicframework.com/docs/) to compile to Android and iOS. Protractor, the default end-to-end test runner has been replaced with Cypress. The [GitHub Scripts to Rule Them All](https://github.com/github/scripts-to-rule-them-all) pattern has been implemented to make it easy to jump into the project and get bootstrapped. [Cypress](https://cypress.io) is used for e2e testing, and finally, this project has been formatted with [Prettier](https://prettier.io).
+This application uses the public [GitHub search API](https://developer.github.com/v3/search/) in order to search for users, and is best viewed on mobile.
+
+- Built with the [Ionic Framework](https://ionicframework.com/docs)
+- [Capacitor](https://capacitor.ionicframework.com/docs/) is used to compile to Android and iOS and offer native features such as the in-app browser which is demoed in this project
+- Protractor, the default end-to-end test runner, has been replaced with [Cypress](https://cypress.io)
+- The [GitHub Scripts to Rule Them All](https://github.com/github/scripts-to-rule-them-all) pattern has been implemented to make it easy to jump into the project and get bootstrapped
+- This project has been formatted with [Prettier](https://prettier.io)
+- [Firebase](https://firebase.google.com) is used for hosting (you must generate your own `.firebaserc`)
 
 ## Table of Contents
 
