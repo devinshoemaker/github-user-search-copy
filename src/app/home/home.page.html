@@ -42,6 +42,21 @@
         <ion-card-subtitle>{{ user.type }}</ion-card-subtitle>
         <ion-card-title>{{ user.login }}</ion-card-title>
       </ion-card-header>
+
+      <ion-card-content>
+        <p cy-id="user-card-bio" *ngIf="user?.metadata?.bio">
+          <b>Bio:</b> {{ user.metadata.bio }}
+        </p>
+        <p cy-id="user-card-repos">
+          <b>Public Repos:</b> {{ user.metadata.public_repos }}
+        </p>
+        <p cy-id="user-card-gists">
+          <b>Public Gists:</b> {{ user.metadata.public_gists }}
+        </p>
+        <p cy-id="user-card-followers">
+          <b>Followers:</b> {{ user.metadata.followers }}
+        </p>
+      </ion-card-content>
     </ion-card>
   </ion-list>
 

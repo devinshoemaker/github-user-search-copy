@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { forkJoin } from 'rxjs';
+import { mergeMap, map } from 'rxjs/operators';
 
 import { Plugins } from '@capacitor/core';
 const { Browser } = Plugins;
@@ -27,10 +29,27 @@ export class HomePage {
   }
 
   public searchGitHubByUrl(url: string): void {
-    this.searchResult = this.http
+    this.http
       .get(url, {
         observe: 'response'
       })
+      .pipe(
+        mergeMap((result: any) => {
+          const users = result.body.items.map((item: any) =>
+            this.http.get(item.url)
+          );
+
+          return forkJoin(users).pipe(
+            map(usersArray => {
+              result.body.items.forEach((item: any, index: number) => {
+                item.metadata = usersArray[index];
+              });
+
+              return result;
+            })
+          );
+        })
+      )
       .subscribe(result => {
         this.searchResult = {
           links: this.parseLinkHeader(result.headers.get('link')),

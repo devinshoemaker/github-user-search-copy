@@ -13,6 +13,9 @@ context('Home Page', () => {
     cy.searchGitHubUsers();
 
     cy.get('[cy-id="user-card"]').should('contain', 'cypress');
+    cy.get('[cy-id="user-card-repos"]').should('exist');
+    cy.get('[cy-id="user-card-gists"]').should('exist');
+    cy.get('[cy-id="user-card-followers"]').should('exist');
   });
 
   it('should display number of user results from search', () => {
