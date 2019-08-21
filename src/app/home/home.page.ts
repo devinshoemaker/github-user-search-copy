@@ -61,7 +61,7 @@ export class HomePage {
 
   /**
    * Return HTTP options that return the full HTTP response and basic auth
-   * if availabe in the environment configs
+   * if availabe in the environment configs.
    */
   private getHttpOptions() {
     const httpOptions = {
@@ -78,6 +78,11 @@ export class HomePage {
     return httpOptions;
   }
 
+  /**
+   * Parse the link header into a usable map.
+   *
+   * @param linkHeader "link" header from HTTP response
+   */
   private parseLinkHeader(linkHeader: string): Map<string, string> {
     const linkMap = new Map();
 

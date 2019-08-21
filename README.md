@@ -18,7 +18,6 @@ Future enhancements I would make:
 - Responsive web design with utilization of whitespace
 - Break down UI into components for pagination, the result list, etc.
 - Karma unit tests
-- User authentication to increase API rate limit
 
 ## Table of Contents
 
