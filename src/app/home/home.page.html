@@ -59,38 +59,42 @@
       </ion-card-content>
     </ion-card>
   </ion-list>
-
-  <ion-button
-    cy-id="pagination-first-button"
-    *ngIf="searchResult?.links?.get('first') as url"
-    (click)="searchGitHubByUrl(url)"
-  >
-    First
-  </ion-button>
-
-  <ion-button
-    cy-id="pagination-prev-button"
-    *ngIf="searchResult?.links?.get('prev') as url"
-    (click)="searchGitHubByUrl(url)"
-  >
-    Prev
-  </ion-button>
-
-  <div class="float-right">
-    <ion-button
-      cy-id="pagination-next-button"
-      *ngIf="searchResult?.links?.get('next') as url"
-      (click)="searchGitHubByUrl(url)"
-    >
-      Next
-    </ion-button>
-
-    <ion-button
-      cy-id="pagination-last-button"
-      *ngIf="searchResult?.links?.get('last') as url"
-      (click)="searchGitHubByUrl(url)"
-    >
-      Last
-    </ion-button>
-  </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button
+      cy-id="pagination-first-button"
+      *ngIf="searchResult?.links?.get('first') as url"
+      (click)="searchGitHubByUrl(url)"
+    >
+      First
+    </ion-button>
+
+    <ion-button
+      cy-id="pagination-prev-button"
+      *ngIf="searchResult?.links?.get('prev') as url"
+      (click)="searchGitHubByUrl(url)"
+    >
+      Prev
+    </ion-button>
+
+    <div class="float-right">
+      <ion-button
+        cy-id="pagination-next-button"
+        *ngIf="searchResult?.links?.get('next') as url"
+        (click)="searchGitHubByUrl(url)"
+      >
+        Next
+      </ion-button>
+
+      <ion-button
+        cy-id="pagination-last-button"
+        *ngIf="searchResult?.links?.get('last') as url"
+        (click)="searchGitHubByUrl(url)"
+      >
+        Last
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
