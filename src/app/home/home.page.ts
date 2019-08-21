@@ -55,6 +55,8 @@ export class HomePage {
           links: this.parseLinkHeader(result.headers.get('link')),
           body: result.body
         };
+
+        document.querySelector('ion-content').scrollToTop(500);
       });
   }
 
