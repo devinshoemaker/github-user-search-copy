@@ -2,7 +2,7 @@
 
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-> A cross-platform Ionic implementation of the GitHub search API
+> A cross-platform Ionic implementation of the GitHub user search API
 
 This application uses the public [GitHub search API](https://developer.github.com/v3/search/) in order to search for users, and is best viewed on mobile.
 
@@ -18,6 +18,7 @@ Future enhancements I would make:
 - Responsive web design with utilization of whitespace
 - Break down UI into components for pagination, the result list, etc.
 - Karma unit tests
+- Add models and strongly type as much as possible
 
 ## Table of Contents
 
