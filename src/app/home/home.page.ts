@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { forkJoin } from 'rxjs';
 import { mergeMap, map } from 'rxjs/operators';
 
 import { Plugins } from '@capacitor/core';
+import { environment } from 'src/environments/environment.prod';
 const { Browser } = Plugins;
 
 @Component({
@@ -30,19 +31,17 @@ export class HomePage {
 
   public searchGitHubByUrl(url: string): void {
     this.http
-      .get(url, {
-        observe: 'response'
-      })
+      .get(url, this.getHttpOptions())
       .pipe(
         mergeMap((result: any) => {
           const users = result.body.items.map((item: any) =>
-            this.http.get(item.url)
+            this.http.get(item.url, this.getHttpOptions())
           );
 
           return forkJoin(users).pipe(
-            map(usersArray => {
+            map((usersArray: any) => {
               result.body.items.forEach((item: any, index: number) => {
-                item.metadata = usersArray[index];
+                item.metadata = usersArray[index].body;
               });
 
               return result;
@@ -58,6 +57,25 @@ export class HomePage {
 
         document.querySelector('ion-content').scrollToTop(500);
       });
+  }
+
+  /**
+   * Return HTTP options that return the full HTTP response and basic auth
+   * if availabe in the environment configs
+   */
+  private getHttpOptions() {
+    const httpOptions = {
+      headers: null,
+      observe: 'response' as 'body'
+    };
+
+    if (environment.basicAuth !== 'CHANGEME') {
+      httpOptions.headers = new HttpHeaders({
+        Authorization: environment.basicAuth
+      });
+    }
+
+    return httpOptions;
   }
 
   private parseLinkHeader(linkHeader: string): Map<string, string> {

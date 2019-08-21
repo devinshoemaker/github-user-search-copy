@@ -14,6 +14,7 @@ This application uses the public [GitHub search API](https://developer.github.co
 - [Firebase](https://firebase.google.com) is used for hosting (you must generate your own `.firebaserc`)
 
 Future enhancements I would make:
+
 - Responsive web design with utilization of whitespace
 - Break down UI into components for pagination, the result list, etc.
 - Karma unit tests
@@ -30,6 +31,8 @@ Future enhancements I would make:
 - [License](#license)
 
 ## Install
+
+- Replace basic auth config in `src/environments/environment.ts` and `src/environments/environment.prod.ts` to increase API rate limit
 
 ```
 script/bootstrap
